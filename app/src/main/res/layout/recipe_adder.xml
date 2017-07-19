@@ -7,15 +7,19 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="Recipe Title"
         android:id="@+id/rec_Title"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="Number of Servings"
         android:id="@+id/rec_Servings"/>
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="How it's made"
         android:id="@+id/rec_Description"/>
 
     <TextView
@@ -27,6 +31,13 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="Add Recipe"
         android:id="@+id/recButton"/>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/bottom_list">
+    </ListView>
 
 </LinearLayout>
