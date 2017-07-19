@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#4b0808"
+    android:orientation="vertical"
+    tools:context="com.test.menusha.myrecipe.MainActivity">
+
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:background="@drawable/topimage"/>
+
+    <EditText
+        android:id="@+id/email_id"
+        android:layout_width="match_parent"
+        android:hint="Email"
+        android:textColorHint="#FFF"
+        android:layout_marginTop="80dp"
+        android:layout_height="50dp"
+        android:textColor="#FFFFFF"
+        android:inputType="textEmailAddress"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"/>
+
+    <EditText
+        android:id="@+id/passWord_id"
+        android:layout_width="match_parent"
+        android:hint="Password"
+        android:textColorHint="#FFF"
+        android:layout_marginTop="10dp"
+        android:layout_height="50dp"
+        android:textColor="#FFFFFF"
+        android:inputType="textPassword"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"/>
+
+    <Button
+        android:id="@+id/submit_button_id"
+        android:text="Sign Up"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/button_yellow"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="40dp"
+        android:textColor="#ffcc00"
+        android:layout_marginRight="40dp"
+        android:layout_height="50dp" />
+
+    <Button
+        android:id="@+id/login_button_id"
+        android:text="Login"
+        android:textColor="#ffcc00"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/button_yellow"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_height="50dp" />
+
+
+</LinearLayout>

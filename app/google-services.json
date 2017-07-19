@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "355244102085",
+    "firebase_url": "https://myrecipe-d4383.firebaseio.com",
+    "project_id": "myrecipe-d4383",
+    "storage_bucket": "myrecipe-d4383.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:355244102085:android:c0a2962fe4c2a3e2",
+        "android_client_info": {
+          "package_name": "com.test.menusha.myrecipe"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "355244102085-nlf6hv37chks1hmdv6giivokhvkiqtn1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYfQUmQ-G7UyUaEMqe5vfBWyAd648uLhQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
