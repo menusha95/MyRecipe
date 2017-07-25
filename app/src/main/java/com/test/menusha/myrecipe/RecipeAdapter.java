@@ -40,15 +40,15 @@ public class RecipeAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
 
-        view = inflater.from(context).inflate(R.layout.recipe_adder,viewGroup,false);
+        view = inflater.from(context).inflate(R.layout.custom_list,viewGroup,false);
 
-        recipeTitle = (TextView) view.findViewById(R.id.rec_Title);
-        recipeServings = (TextView) view.findViewById(R.id.rec_Servings);
-        recipeDescription = (TextView) view.findViewById(R.id.rec_Description);
+        recipeTitle = (TextView) view.findViewById(R.id.readname);
+        recipeServings = (TextView) view.findViewById(R.id.readage);
+        recipeDescription = (TextView) view.findViewById(R.id.desclist);
 
 
-        recipeTitle.setText(recipeTitle.getText()+recData.get(i).getRecTitle());
-        recipeServings.setText(recipeServings.getText()+""+ recData.get(i).getRecServings());
+        recipeTitle.setText(recipeTitle.getText()+" "+recData.get(i).getRecTitle());
+        recipeServings.setText(recipeServings.getText()+" "+ recData.get(i).getRecServings());
         recipeDescription.setText(recipeDescription.getText()+""+ recData.get(i).getRecDescription());
 
         return view;

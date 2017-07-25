@@ -2,13 +2,13 @@ package com.test.menusha.myrecipe;
 
 public class RecipeData {
 
-    String key;
+    String id;
     String recTitle;
     String recServings;
     String recDescription;
 
-    public RecipeData(String key, String title, String servings, String description) {
-        this.key = key;
+    public RecipeData(String id, String title, String servings, String description) {
+        this.id = id;
         this.recTitle = title;
         this.recServings = servings;
         this.recDescription=description;
@@ -17,18 +17,16 @@ public class RecipeData {
     public RecipeData() {
 
     }
-
-    public String getKey() {
-        return key;
+    public String getId() {
+        return id;
     }
     public String getRecTitle(){
-        return getRecTitle();
+        return recTitle;
     }
-
     public String getRecServings() {
-        return getRecServings();
+        return recServings;
     }
     public String getRecDescription(){
-        return getRecDescription();
+        return recDescription;
     }
 }
