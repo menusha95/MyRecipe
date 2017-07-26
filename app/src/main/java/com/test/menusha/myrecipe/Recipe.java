@@ -41,7 +41,7 @@ import static java.security.AccessController.getContext;
 
 public class Recipe extends AppCompatActivity {
 
-    int temp;
+    int rep;
     DatabaseReference recRef;
     RecipeData data;
     LayoutInflater inflater1;
@@ -50,7 +50,7 @@ public class Recipe extends AppCompatActivity {
     ListView bottomList;
     Button btnAdd,btnDelUpd;
     FirebaseDatabase fDatabase;
-    ArrayList<RecipeData> dataArrayList;
+    ArrayList<RecipeData> recipeList;
     RecipeAdapter recAdapter;
     String id;
     String descrip;
@@ -113,16 +113,16 @@ public class Recipe extends AppCompatActivity {
 
 
 
-        dataArrayList = new ArrayList<>();
+        recipeList = new ArrayList<>();
 
-        recAdapter = new RecipeAdapter(Recipe.this, dataArrayList);
+        recAdapter = new RecipeAdapter(Recipe.this, recipeList);
         bottomList.setAdapter(recAdapter);
 
         recRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 RecipeData datam = dataSnapshot.getValue(RecipeData.class);
-                dataArrayList.add(datam);
+                recipeList.add(datam);
                 recAdapter.notifyDataSetChanged();
             }
             @Override
@@ -146,11 +146,11 @@ public class Recipe extends AppCompatActivity {
 
         bottomList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+            public void onItemClick(AdapterView<?> adapterView, View view, int tmp, long l) {
 
 
                 final View view2 = inflater1.from(getApplicationContext()).inflate(R.layout.custom_alert, null);
-                temp = i;
+                rep = tmp;
 
                 final EditText updateRecipe, updateServing,updateDescription;
                 updateRecipe = (EditText) view2.findViewById(R.id.update_Recipe);
@@ -165,10 +165,10 @@ public class Recipe extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
 
-                        RecipeData tempData = new RecipeData(dataArrayList.get(temp).getId(), updateRecipe.getText().toString(), updateServing.getText().toString(), updateDescription.getText().toString());
-                        recRef.child(dataArrayList.get(temp).getId()).setValue(tempData);
-                        dataArrayList.remove(temp);
-                        dataArrayList.add(temp, tempData);
+                        RecipeData tempData = new RecipeData(recipeList.get(rep).getId(), updateRecipe.getText().toString(), updateServing.getText().toString(), updateDescription.getText().toString());
+                        recRef.child(recipeList.get(rep).getId()).setValue(tempData);
+                        recipeList.remove(rep);
+                        recipeList.add(rep, tempData);
                         recAdapter.notifyDataSetChanged();
                     }
                 });
@@ -176,20 +176,20 @@ public class Recipe extends AppCompatActivity {
                 view2.findViewById(R.id.delete).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        if (temp == -1) {
+                        if (rep == -1) {
                             Toast.makeText(getApplicationContext(), "There is no data to delete", Toast.LENGTH_SHORT).show();
                         } else {
-                            recRef.child(dataArrayList.get(temp).getId()).removeValue();
-                            dataArrayList.remove(temp);
+                            recRef.child(recipeList.get(rep).getId()).removeValue();
+                            recipeList.remove(rep);
                             recAdapter.notifyDataSetChanged();
                             alert.cancel();
-                            temp = -1;
+                            rep = -1;
                         }
                     }
                 });
-                updateRecipe.setText(dataArrayList.get(temp).getRecTitle());
-                updateServing.setText(dataArrayList.get(temp).getRecServings());
-                updateDescription.setText(dataArrayList.get(temp).getRecDescription());
+                updateRecipe.setText(recipeList.get(rep).getRecTitle());
+                updateServing.setText(recipeList.get(rep).getRecServings());
+                updateDescription.setText(recipeList.get(rep).getRecDescription());
 
                 try {
                     alert.show();
@@ -208,10 +208,10 @@ public class Recipe extends AppCompatActivity {
         recRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                dataArrayList.clear();
+                recipeList.clear();
                 for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                     data = dataSnapshot1.getValue(RecipeData.class);
-                    dataArrayList.add(data);
+                    recipeList.add(data);
                 }
                 recAdapter.notifyDataSetChanged();
             }
