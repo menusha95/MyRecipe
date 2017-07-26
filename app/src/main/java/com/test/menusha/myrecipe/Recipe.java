@@ -77,6 +77,7 @@ public class Recipe extends AppCompatActivity {
         btnDelUpd=(Button)findViewById(R.id.rec_Delete_Update);
         bottomList = (ListView) findViewById(R.id.bottom_list);
 
+        //3 fields of recipe added to the database and the textviews are set to null to add another recipe
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -101,6 +102,7 @@ public class Recipe extends AppCompatActivity {
             }
         });
 
+        //view the lists of recipes
         btnDelUpd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -147,19 +149,19 @@ public class Recipe extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
 
-                final View v = inflater1.from(getApplicationContext()).inflate(R.layout.custom_alert, null);
+                final View view2 = inflater1.from(getApplicationContext()).inflate(R.layout.custom_alert, null);
                 temp = i;
 
                 final EditText updateRecipe, updateServing,updateDescription;
-                updateRecipe = (EditText) v.findViewById(R.id.update_Recipe);
-                updateServing = (EditText) v.findViewById(R.id.update_Serving);
-                updateDescription = (EditText) v.findViewById(R.id.update_Descrip);
+                updateRecipe = (EditText) view2.findViewById(R.id.update_Recipe);
+                updateServing = (EditText) view2.findViewById(R.id.update_Serving);
+                updateDescription = (EditText) view2.findViewById(R.id.update_Descrip);
 
 
-                final AlertDialog.Builder builder = new AlertDialog.Builder(Recipe.this).setView(v);
+                final AlertDialog.Builder builder = new AlertDialog.Builder(Recipe.this).setView(view2);
                 final AlertDialog alert = builder.create();
 
-                v.findViewById(R.id.update).setOnClickListener(new View.OnClickListener() {
+                view2.findViewById(R.id.update).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
 
@@ -171,7 +173,7 @@ public class Recipe extends AppCompatActivity {
                     }
                 });
 
-                v.findViewById(R.id.delete).setOnClickListener(new View.OnClickListener() {
+                view2.findViewById(R.id.delete).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         if (temp == -1) {
@@ -187,7 +189,7 @@ public class Recipe extends AppCompatActivity {
                 });
                 updateRecipe.setText(dataArrayList.get(temp).getRecTitle());
                 updateServing.setText(dataArrayList.get(temp).getRecServings());
-                updateDescription.setText(dataArrayList.get(temp).getRecTitle());
+                updateDescription.setText(dataArrayList.get(temp).getRecDescription());
 
                 try {
                     alert.show();
@@ -201,6 +203,7 @@ public class Recipe extends AppCompatActivity {
         recipeUpdate();
     }
 
+    //update a particular recipe
     public void recipeUpdate() {
         recRef.addValueEventListener(new ValueEventListener() {
             @Override

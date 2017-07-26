@@ -62,8 +62,7 @@ public class DeleteUpdate extends AppCompatActivity {
         protected Void doInBackground(Void... arg0) {
             HttpGet sh = new HttpGet();
             //Url to access the API
-            String url = "https://myrecipe-d4383.firebaseio.com/.json?print=pretty&format=export&download=myrecipe-d4383-export.json&auth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1MDA5ODIxOTMsImV4cCI6MTUwMDk4NTc5MywiYWRtaW4iOnRydWUsInYiOjB9.IR_Jbqe0hDWRmrjhUbkLEknpe1oob-uRG1uvC84J9-E";
-
+            String url = "https://myrecipe-d4383.firebaseio.com/.json?print=pretty&format=export&download=myrecipe-d4383-export.json&auth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1MDEwNDM3NzYsImV4cCI6MTUwMTA0NzM3NiwiYWRtaW4iOnRydWUsInYiOjB9.p-CENOy633bintsnYEzojXCkfoh3e5iXX2PbPEUIDkk";
             String jsonStr = sh.service(url);
 
             if (jsonStr != null) {
